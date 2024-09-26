@@ -24,7 +24,7 @@ This project showcases a **custom animated tab component** built using **Expo SD
 
 Here's a GIF showcasing the custom animated tabs in action:
 
-![Tabs Animation](./assets/demo.gif)
+![Tabs Animation](./demo.gif)
 
 ## 🛠️ Technologies Used
 
@@ -47,12 +47,14 @@ cd custom-animated-tabs
 
 ### 2. Install Dependencies
 
-Use **yarn** or **npm** to install the required dependencies:
+Use **npx expo** or **yarn** or **npm** to install the required dependencies:
 
 ```bash
-yarn install
+npx expo install
 # OR
 npm install
+# OR
+yarn install
 ```
 
 ### 3. Run the App
@@ -60,7 +62,7 @@ npm install
 Run the app on iOS or Android using Expo:
 
 ```bash
-expo start
+npx expo start -c
 ```
 
 ### 🛠 Dependencies
@@ -69,55 +71,28 @@ Key libraries used in this project:
 
 ```json
 {
-  "expo": "^51.0.0",
-  "react-native-reanimated": "^2.x.x",
-  "moti": "^0.x.x",
-  "lucide-react-native": "^0.x.x"
+  "expo": "~51.0.28",
+  "react-native-reanimated": "~3.10.1",
+   "moti": "^0.29.0",
+  "lucide-react-native": "^0.446.0",
 }
 ```
 
-## ✨ Custom Tab Example
 
-Below is a preview of the code for creating the custom animated tab component:
-
-```tsx
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
-import { icons } from 'lucide-react-native';
-import Animated from 'react-native-reanimated';
-
-const Tabs = ({ data, selectedIndex, onChange }) => {
-  return (
-    <View style={{ flexDirection: 'row', gap: 4 }}>
-      {data.map((item, index) => {
-        const isSelected = selectedIndex === index;
-        return (
-          <Animated.View key={index} entering={...animation}>
-            <Pressable onPress={() => onChange(index)}>
-              <Icon name={item.icon} color={isSelected ? 'white' : 'grey'} />
-              {isSelected && <Animated.Text> {item.label} </Animated.Text>}
-            </Pressable>
-          </Animated.View>
-        );
-      })}
-    </View>
-  );
-};
-
-export default Tabs;
 ```
 
 ## 🚀 Project Structure
 
-- `components/`: Contains reusable components, including the **Tabs** component.
-- `assets/`: Contains static assets like images and GIFs.
+- `_layout.tsx`: Main Entry File.
+- `index.tsx/`: Contains the Main App File.
+- `Tabs.tsx/`: Contains the Main App File.
 
 ## 📂 Assets
 
-Make sure the GIF (`demo.gif`) is located in the `assets` folder:
+Make sure the GIF (`demo.gif`) is located in the root folder of the project:
 
 ```
-/assets
+/project
   └── demo.gif
 ```
 
@@ -128,5 +103,5 @@ Enjoy creating beautiful animations in your React Native apps with Expo! 🎉
 
 In this template:
 
-- The GIF of the demo (`demo.gif`) is expected to be in the `/assets` folder.
+- The GIF of the demo (`demo.gif`) is expected to be in the root folder.
 - The project setup and structure are clearly explained.
