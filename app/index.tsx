@@ -3,6 +3,14 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Tabs, { TabItem } from './Tabs';
 
+const colors = [
+    'red',
+    'cyan',
+    'green',
+    'yellow',
+    'purple'
+];
+
 const Index = () => {
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const data:TabItem[] = [
@@ -15,12 +23,14 @@ const Index = () => {
 
     const handleChange = (index: number) => {
         setSelectedIndex(index);
+        console.log('Selected Index:', index);
     }
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Tabs 
+            <View style={{ flex: 1 }}>
+               <View style={{justifyContent:"center",alignItems:'center'}}>
+               <Tabs 
                     data={data} 
                     selectedIndex={selectedIndex} 
                     onChange={handleChange} 
@@ -29,6 +39,9 @@ const Index = () => {
                     activeBackgroundColor="#111"
                     inactiveBackgroundColor="#ddd"
                 />
+               </View>
+               <View style={{flex:1,backgroundColor:colors[selectedIndex],margin:20,borderRadius:30}}></View>
+                
             </View>
         </SafeAreaView>
     )
@@ -36,4 +49,3 @@ const Index = () => {
 
 export default Index;
 
-const styles = StyleSheet.create({});
