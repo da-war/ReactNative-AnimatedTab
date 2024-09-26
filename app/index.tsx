@@ -2,6 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Tabs, { TabItem } from './Tabs';
+import Animated, { FadeInRight, FadeOutLeft, LayoutAnimationConfig } from 'react-native-reanimated';
 
 const colors = [
     'red',
@@ -40,8 +41,18 @@ const Index = () => {
                     inactiveBackgroundColor="#ddd"
                 />
                </View>
-               <View style={{flex:1,backgroundColor:colors[selectedIndex],margin:20,borderRadius:30}}></View>
+               <LayoutAnimationConfig skipEntering>
+               <Animated.View 
+                    key={`tab-${selectedIndex}`}
+                    entering={FadeInRight.springify().damping(80).stiffness(200)}
+                    exiting={FadeOutLeft.springify().damping(80).stiffness(200)}
+                    style={{
+                        flex:1,backgroundColor:colors[selectedIndex],
+                        margin:20,borderRadius:30
+                        }} 
+                        />
                 
+               </LayoutAnimationConfig>
             </View>
         </SafeAreaView>
     )

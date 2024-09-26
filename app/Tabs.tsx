@@ -3,7 +3,7 @@ import React from 'react';
 
 
 import { icons} from "lucide-react-native";
-import Animated, { FadeInRight, LinearTransition } from 'react-native-reanimated';
+import Animated, { FadeInRight, LayoutAnimationConfig, LinearTransition } from 'react-native-reanimated';
 import { motify, MotiProps, MotiView } from 'moti';
 import { motifySvg } from 'moti/svg';
 
@@ -77,16 +77,20 @@ const Tabs:React.FC<TabProps> = ({
                         }}
                         />
 
+                    <LayoutAnimationConfig skipEntering>
                     {isSelected&&(
                         <Animated.Text 
+                        
                         entering={FadeInRight.springify().damping(80).stiffness(200)}
                         style={{
                          color:isSelected?activeColor:inactiveColor,
+                         fontWeight:'bold',
                      }}
                          >
                              {item.label}
                      </Animated.Text>
                     )}
+                    </LayoutAnimationConfig>
                 </Pressable>
             </MotiView>
         )
