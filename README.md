@@ -1,50 +1,132 @@
-# Welcome to your Expo app 👋
+Here’s the final version of your `README.md` that includes the GIF from the project folder and mentions **Expo SDK 51**:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+```markdown
+# 🚀 Custom Animated Tabs in React Native
 
-## Get started
+![Custom Tabs Demo](./demo.gif)
 
-1. Install dependencies
+## ✨ Overview
 
-   ```bash
-   npm install
-   ```
+This project showcases a **custom animated tab component** built using **Expo SDK 51**, featuring:
 
-2. Start the app
+- 🎨 **React Native Reanimated** for smooth and performant animations.
+- 🎉 **Moti** for simplified animation creation and sequencing.
+- 🔥 **Lucide React Native** for beautifully crafted icons.
 
-   ```bash
-    npx expo start
-   ```
+### 🌟 Features
 
-In the output, you'll find options to open the app in a
+- **Animated transitions** with smooth enter/exit animations.
+- **Interactive tabs** that respond to user selection with stunning effects.
+- **Lucide icons** for a clean, modern look.
+- **Cross-platform compatibility** with both iOS and Android using **Expo SDK 51**.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🎬 Demo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Here's a GIF showcasing the custom animated tabs in action:
 
-## Get a fresh project
+![Tabs Animation](./assets/demo.gif)
 
-When you're ready, run:
+## 🛠️ Technologies Used
+
+- **Expo SDK 51**: Fast and powerful development tools for React Native.
+- **React Native Reanimated**: High-performance animations for React Native.
+- **Moti**: Simplified animations in React Native.
+- **Lucide React Native**: Customizable icons for a sleek UI.
+- **TypeScript**: Ensures type safety and code maintainability.
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally:
+
+### 1. Clone the Repository
 
 ```bash
-npm run reset-project
+git clone https://github.com/your-username/custom-animated-tabs.git
+cd custom-animated-tabs
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Install Dependencies
 
-## Learn more
+Use **yarn** or **npm** to install the required dependencies:
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+yarn install
+# OR
+npm install
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 3. Run the App
 
-## Join the community
+Run the app on iOS or Android using Expo:
 
-Join our community of developers creating universal apps.
+```bash
+expo start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 🛠 Dependencies
+
+Key libraries used in this project:
+
+```json
+{
+  "expo": "^51.0.0",
+  "react-native-reanimated": "^2.x.x",
+  "moti": "^0.x.x",
+  "lucide-react-native": "^0.x.x"
+}
+```
+
+## ✨ Custom Tab Example
+
+Below is a preview of the code for creating the custom animated tab component:
+
+```tsx
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { icons } from 'lucide-react-native';
+import Animated from 'react-native-reanimated';
+
+const Tabs = ({ data, selectedIndex, onChange }) => {
+  return (
+    <View style={{ flexDirection: 'row', gap: 4 }}>
+      {data.map((item, index) => {
+        const isSelected = selectedIndex === index;
+        return (
+          <Animated.View key={index} entering={...animation}>
+            <Pressable onPress={() => onChange(index)}>
+              <Icon name={item.icon} color={isSelected ? 'white' : 'grey'} />
+              {isSelected && <Animated.Text> {item.label} </Animated.Text>}
+            </Pressable>
+          </Animated.View>
+        );
+      })}
+    </View>
+  );
+};
+
+export default Tabs;
+```
+
+## 🚀 Project Structure
+
+- `components/`: Contains reusable components, including the **Tabs** component.
+- `assets/`: Contains static assets like images and GIFs.
+
+## 📂 Assets
+
+Make sure the GIF (`demo.gif`) is located in the `assets` folder:
+
+```
+/assets
+  └── demo.gif
+```
+
+---
+
+Enjoy creating beautiful animations in your React Native apps with Expo! 🎉
+```
+
+In this template:
+
+- The GIF of the demo (`demo.gif`) is expected to be in the `/assets` folder.
+- The project setup and structure are clearly explained.
